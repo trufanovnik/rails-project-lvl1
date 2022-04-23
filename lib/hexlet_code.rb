@@ -2,7 +2,9 @@
 
 require_relative "hexlet_code/version"
 require 'nokogiri'
-require 'happymapper'
+require 'erb'
+
+
 
 module HexletCode
   class Error < StandardError; end
@@ -14,26 +16,25 @@ module HexletCode
         @smth = ["<#{first}>"]
       elsif
         kwargs.each_with_object([]) do |(k, v), array|
-          @smth = array << " #{k}=#{v}>"
+          @smth = array << " #{k}='#{v}'"
         end
         case block_given?
         when true
-          @smth = ["<#{first}", @smth, "#{yield}</#{first}>"]
+          @smth = ["<#{first}", @smth, ">#{yield}</#{first}>"]
         when false
-          @smth = ["<#{first}", @smth]
+          @smth = ["<#{first}", @smth, ">"]
         end
       end
       @smth.join
     end
   end
 end
-p HexletCode::Tag.build('br')
-p HexletCode::Tag.build('img', src: 'path/to/image')
-p HexletCode::Tag.build('input', type: 'submit', value: 'Save')
-p HexletCode::Tag.build('label') { 'Email' }
-p HexletCode::Tag.build('label', for: 'email') { 'Email' }
-p HexletCode::Tag.build('div'){}
-# p HappyMapper(HexletCode::Tag.build('label', for: 'email') { 'Email' })
+# p HexletCode::Tag.build('br')
+# p HexletCode::Tag.build('img', src: 'path/to/image')
+p (HexletCode::Tag.build('input', type: 'submit', value: 'Save'))
+# p HexletCode::Tag.build('label') { 'Email' }
+# p HexletCode::Tag.build('label', for: 'email') { 'Email' }
+# p HexletCode::Tag.build('div'){}
 # # <br>
 # # <img src="path/to/image">
 # # <input type="submit" value="Save">
