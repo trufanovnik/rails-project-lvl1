@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "hexlet_code/version"
-require 'nokogiri'
-require 'erb'
-
-
 
 module HexletCode
   class Error < StandardError; end
@@ -29,15 +25,3 @@ module HexletCode
     end
   end
 end
-# p HexletCode::Tag.build('br')
-# p HexletCode::Tag.build('img', src: 'path/to/image')
-p (HexletCode::Tag.build('input', type: 'submit', value: 'Save'))
-# p HexletCode::Tag.build('label') { 'Email' }
-# p HexletCode::Tag.build('label', for: 'email') { 'Email' }
-# p HexletCode::Tag.build('div'){}
-# # <br>
-# # <img src="path/to/image">
-# # <input type="submit" value="Save">
-# # <label>Email</label>
-# # <label for="email">Email</label>
-# # <div></div>
