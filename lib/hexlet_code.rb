@@ -4,24 +4,25 @@ require_relative "hexlet_code/version"
 
 module HexletCode
   class Error < StandardError; end
+
   class Tag
-    def self.build(first, kwargs = {}, &block)
+    def self.build(first, **kwargs, &block)
       if kwargs.empty? && block_given?
-        @smth = ["<#{first}>#{yield}</#{first}>"]
+        @tag = ["<#{first}>#{yield}</#{first}>"]
       elsif kwargs.empty?
-        @smth = ["<#{first}>"]
-      elsif
+        @tag = ["<#{first}>"]
+      else
         kwargs.each_with_object([]) do |(k, v), array|
-          @smth = array << " #{k}='#{v}'"
+          @tag = array << " #{k}='#{v}'"
         end
         case block_given?
         when true
-          @smth = ["<#{first}", @smth, ">#{yield}</#{first}>"]
+          @tag = ["<#{first}", @tag, ">#{yield}</#{first}>"]
         when false
-          @smth = ["<#{first}", @smth, ">"]
+          @tag = ["<#{first}", @tag, ">"]
         end
       end
-      @smth.join
+      @tag.join
     end
   end
 end
