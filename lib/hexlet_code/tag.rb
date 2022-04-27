@@ -19,8 +19,8 @@ class Tag
     "</#{name}>"
   end
   def self.tag_block(&block)
-    ">#{block.call}<" if block_given?
+    "#{block.call}"
   end
 end
 
-puts Tag.build('input', type: 'submit', value: 'Save')
+puts Tag.build('label', for: 'email') { 'Email' }
