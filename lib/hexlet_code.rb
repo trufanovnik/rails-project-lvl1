@@ -8,14 +8,10 @@ module HexletCode
   class Error < StandardError; end
 
   def self.form_for(model, url: "#", &block)
-    Tag.build('form', action: url, method: 'post') do 
-      block.call Content_Builder.new(model) if block_given?
+    block_result = block.call ContentBuilder.new(model)
+    full_form = Tag.build('form', action: url, method: 'post') do
+      "\n#{block_result.join}\n"
     end
+    puts full_form
   end
-end
-User = Struct.new(:name, :job, :gender, keyword_init: true)
-user = User.new name: 'rob', job: 'hexlet', gender: 'm'
-puts HexletCode.form_for user do |f|
-  f.input :name
-  
 end
