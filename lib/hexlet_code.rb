@@ -9,7 +9,7 @@ module HexletCode
 
   def self.form_for(model, url: "#", &block)
     block_result = block.call ContentBuilder.new(model)
-    full_form = Tag.build('form', action: url, method: 'post') do
+    full_form = Tag.build("form", action: url, method: "post") do
       "\n#{block_result.join}\n"
     end
     puts full_form
