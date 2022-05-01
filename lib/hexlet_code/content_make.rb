@@ -7,12 +7,12 @@ module HexletCode
       @result = []
     end
 
-    def input(field_name, as: nil)
+    def input(field_name, as: nil, cols: nil, rows: nil)
       field_value = @model.send(field_name)
       label(field_name)
       @result << Tag.build("input", name: field_name.to_s, type: "text", value: field_value.to_s)
       @result << "\n"
-      add_as(field_name) if as
+      add_as(field_name, cols, rows) if as
     end
 
     def label(field_name)
@@ -27,9 +27,9 @@ module HexletCode
       @result << Tag.build("input", name: "commit", type: "submit", value: default)
     end
 
-    def add_as(field_name)
+    def add_as(field_name, cols, rows)
       field_value = @model.send(field_name)
-      @result << Tag.build("textarea", cols: "20", rows: "40", name: field_name.to_s) do
+      @result << Tag.build("textarea", cols: cols.to_s, rows: rows.to_s, name: field_name.to_s) do
         field_value.to_s
       end
     end
