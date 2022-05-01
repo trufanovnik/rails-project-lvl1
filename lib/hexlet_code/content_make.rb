@@ -7,7 +7,7 @@ module HexletCode
       @result = []
     end
 
-    def input(field_name, as: nil, cols: nil, rows: nil)
+    def input(field_name, as: nil, cols: nil, rows: nil, class: nil)
       field_value = @model.send(field_name)
       label(field_name)
       @result << Tag.build("input", name: field_name.to_s, type: "text", value: field_value.to_s)
