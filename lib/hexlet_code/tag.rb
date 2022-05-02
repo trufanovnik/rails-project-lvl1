@@ -28,7 +28,7 @@ module HexletCode
     end
 
     def self.tag_close(name, &block)
-      block_given? ? "</#{name}>" : ">"
+      block ? "</#{name}>" : ">"
     end
   end
 end
