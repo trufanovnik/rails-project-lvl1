@@ -25,4 +25,4 @@ jobs:
         run: make lint
       
       - name: Run Test
-        run: make my_test
+        run: make test

@@ -2,18 +2,16 @@
 
 module HexletCode
   class Tag
-    EMPTY_TAGS = %w(area base br col embed hr img input link menuitem meta param source track a)
+    EMPTY_TAGS = %w[area base br col embed hr img input link menuitem meta param source track a].freeze
 
     def self.build(tag_name, **attributes, &block)
       tag = []
       tag << tag_open(tag_name, **attributes)
       block_result = tag_block(&block) if block_given?
       tag << block_result if block_result.instance_of? String
-      tag << "</#{tag_name}>" if has_closed_tag(tag_name)
+      tag << "</#{tag_name}>" if closed_tag?(tag_name)
       tag.join
     end
-
-    private
 
     def self.tag_open(tag_name, **attributes)
       attr_string = attributes.each_with_object([]) do |(k, v), array|
@@ -26,8 +24,9 @@ module HexletCode
       block.call
     end
 
-    def self.has_closed_tag(tag_name)
+    def self.closed_tag?(tag_name)
       return false if EMPTY_TAGS.include? tag_name
+
       true
     end
   end
