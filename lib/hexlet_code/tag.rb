@@ -3,6 +3,7 @@
 module HexletCode
   class Tag
     def self.build(name, **kwargs, &block)
+      raise ArgumentError if name.strip.empty?
       tag = []
       tag << tag_open(name)
       tag << tag_attributes(**kwargs) if kwargs

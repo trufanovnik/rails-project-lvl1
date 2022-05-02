@@ -13,7 +13,7 @@ class TestHexletCode < Minitest::Test
     tag_3 = HexletCode::Tag.build('div')
     assert_equal tag_1, "<input type=\"submit\" value=\"Save\">"
     assert_equal tag_2, "<label for=\"email\">Email</label>"
-    assert(tag_3 = "<div>")
+    assert(tag_3 == "<div>")
   end
 
   # def test_full_form
@@ -24,6 +24,6 @@ class TestHexletCode < Minitest::Test
   #     f.input :name
   #     f.input :job, as: :text, rows: 40, cols: 20
   #   end
-  #   assert(full_form = file.read)
+  #   assert(full_form == file.read)
   # end
 end
