@@ -15,4 +15,15 @@ class TestHexletCode < Minitest::Test
     assert_equal tag_2, "<label for=\"email\">Email</label>"
     assert(tag_3 = "<div>")
   end
+
+  # def test_full_form
+  #   file = File.new("/Users/nikitatrufanov/Hexlet/projects/project_1/rails-project-lvl1/lib/fixtures/test_form.erb")
+  #   User = Struct.new(:name, :job, :gender, keyword_init: true)
+  #   user = User.new(name: 'rob', job: 'hexlet', gender: 'm')
+  #   full_form = HexletCode.form_for user do |f|
+  #     f.input :name
+  #     f.input :job, as: :text, rows: 40, cols: 20
+  #   end
+  #   assert(full_form = file.read)
+  # end
 end
