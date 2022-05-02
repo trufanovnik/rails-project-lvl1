@@ -7,6 +7,10 @@ class TestHexletCode < Minitest::Test
     refute_nil ::HexletCode::VERSION
   end
 
+  def setup
+    @user = User.new name: "rob", job: "hexlet", gender: "m"
+  end
+
   def test_make_tag
     # tag_1 = HexletCode::Tag.build('input', type: 'submit', value: 'Save')
     # tag_2 = HexletCode::Tag.build('label', for: 'email') { 'Email' }
@@ -45,5 +49,14 @@ class TestHexletCode < Minitest::Test
     tag = HexletCode.form_for user, url: "/users" do |f|
     end
     assert { tag == '<form action="/users" method="post"></form>' }
+  end
+
+  def test_hexlet3
+    # tag = HexletCode.form_for @user do |f|
+    #   f.input :name
+    #   f.input :job, as: :text
+    # end
+    # assert { tag == '<form action="#" method="post"><input name="name" type="text" value="rob"> '\
+    # '<textarea cols="20" rows="40" name="job">hexlet</textarea></form>' }
   end
 end
