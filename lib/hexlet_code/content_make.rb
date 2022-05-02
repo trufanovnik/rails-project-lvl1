@@ -32,6 +32,7 @@ module HexletCode
       @result << Tag.build("textarea", cols: cols.to_s, rows: rows.to_s, name: field_name.to_s) do
         field_value.to_s
       end
+      @result << "\n"
     end
     @result
   end
