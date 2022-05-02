@@ -2,5 +2,7 @@ install:
 	bundle install
 lint:
 	bundle exec rubocop lib
-my_test:
+test:
 	rake test
+
+.PHONY: test
