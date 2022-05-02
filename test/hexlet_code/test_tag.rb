@@ -68,5 +68,3 @@ class TestTag < Minitest::Test
     assert target.include?("></")
   end
 end
-
-

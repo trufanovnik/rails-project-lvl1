@@ -26,4 +26,24 @@ class TestHexletCode < Minitest::Test
   #   end
   #   assert(full_form = file.read)
   # end
+
+  def test_form_for_return_string_result
+    tag = HexletCode.form_for nil do |f|
+    end
+    assert_instance_of(String, tag)
+  end
+
+  def test_hexlet1
+    user = nil
+    tag = HexletCode.form_for user do |f|
+    end
+    assert { tag == '<form action="#" method="post"></form>' }
+  end
+
+  def test_hexlet2
+    user = nil
+    tag = HexletCode.form_for user, url: "/users" do |f|
+    end
+    assert { tag == '<form action="/users" method="post"></form>' }
+  end
 end
