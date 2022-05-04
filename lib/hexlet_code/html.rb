@@ -4,19 +4,19 @@ module HexletCode
   module Html
     METHODS = { text: :textarea, default: :input_text }.freeze
 
-    def label(label_text, **attributes, &block)
-      HexletCode::Tag.build("label", **attributes) { label_text }
+    def html_label(label_text)
+      HexletCode::Tag.build("label", for: label_text.to_s) { label_text.to_s.capitalize }
     end
 
-    def div(**attributes, &block)
+    def html_div(**attributes, &block)
       HexletCode::Tag.build("div", **attributes) { block.call }
     end
 
-    def submit(caption = "Save", **attributes)
+    def html_submit(caption = "Save", **attributes)
       HexletCode::Tag.build("input", type: :submit, name: :commit, value: caption, **attributes)
     end
 
-    def input(name, value, **attributes)
+    def html_input(name, value, **attributes)
       as = (attributes.delete :as) || :default
       i_method = METHODS[as]
       send i_method, name, value, **attributes
@@ -28,7 +28,7 @@ module HexletCode
 
     def textarea(name, value, **attributes)
       attributes = { cols: 20, rows: 40 }.merge attributes
-      HexletCode::Tag.build("textarea", name: name, **attributes) { value }
+      HexletCode::Tag.build("textarea", **attributes, name: name) { value }
     end
   end
 end

@@ -20,31 +20,32 @@ class TestHexletCode < Minitest::Test
     assert { tag3 == "<div></div>" }
   end
 
-  # def test_form_for_return_string_result
-  #   tag = HexletCode.form_for nil do |f|
-  #   end
-  #   assert_instance_of(String, tag)
-  # end
+  def test_form_for_return_string_result
+    tag = HexletCode.form_for nil do |f|
+    end
+    assert_instance_of(String, tag)
+  end
 
-  # def test_hexlet1
-  #   user = nil
-  #   tag = HexletCode.form_for user do |f|
-  #   end
-  #   assert { tag == '<form action="#" method="post"></form>' }
-  # end
+  def test_hexlet1
+    user = nil
+    tag = HexletCode.form_for user do |f|
+    end
+    assert { tag == '<form action="#" method="post"></form>' }
+  end
 
-  # def test_hexlet2
-  #   user = nil
-  #   tag = HexletCode.form_for user, url: "/users" do |f|
-  #   end
-  #   assert { tag == '<form action="/users" method="post"></form>' }
-  # end
+  def test_hexlet2
+    user = nil
+    tag = HexletCode.form_for user, url: "/users" do |f|
+    end
+    assert { tag == '<form action="/users" method="post"></form>' }
+  end
 
   # def test_hexlet3
   #   tag = HexletCode.form_for @user do |f|
   #     f.input :name
   #     f.input :job, as: :text
   #   end
-  #   assert { tag == '<form action="#" method="post"><input name="name" type="text" value="rob">''<textarea cols="20" rows="40" name="job">hexlet</textarea></form>' }
+  #   assert { tag == '<form action=\"#\" method=\"post\"><label for=\"name\">Name</label>
+  # <input name="name" type="text" value="rob">''<textarea cols="20" rows="40" name="job">hexlet</textarea></form>' }
   # end
 end
