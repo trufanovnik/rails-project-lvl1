@@ -1,6 +1,10 @@
 install:
 	bundle install
 lint:
-	bundle exec rubocop lib
-my_test:
+	bundle exec rubocop
+test:
 	rake test
+autocorrect:
+	rubocop -a
+
+.PHONY: test
