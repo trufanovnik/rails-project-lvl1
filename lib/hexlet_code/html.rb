@@ -9,11 +9,11 @@ module HexletCode
     end
 
     def div(**attributes, &block)
-      HexletCode::Tag.build "div", **attributes { block.call }
+      HexletCode::Tag.build("div", **attributes) { block.call }
     end
 
     def submit(caption = "Save", **attributes)
-      HexletCode::Tag.build "input", type: :submit, name: :commit, value: caption, **attributes
+      HexletCode::Tag.build("input", type: :submit, name: :commit, value: caption, **attributes)
     end
 
     def input(name, value, **attributes)
@@ -23,7 +23,7 @@ module HexletCode
     end
 
     def input_text(name, value, **attributes)
-      HexletCode::Tag.build "input", name: name, type: :text, value: value, **attributes
+      HexletCode::Tag.build("input", name: name, type: :text, value: value, **attributes)
     end
 
     def textarea(name, value, **attributes)

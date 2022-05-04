@@ -26,7 +26,6 @@ module HexletCode
 
     def self.closed_tag?(tag_name)
       return false if EMPTY_TAGS.include? tag_name
-
       true
     end
   end
