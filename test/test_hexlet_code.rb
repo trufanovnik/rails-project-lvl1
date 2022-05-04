@@ -39,13 +39,4 @@ class TestHexletCode < Minitest::Test
     end
     assert { tag == '<form action="/users" method="post"></form>' }
   end
-
-  # def test_hexlet3
-  #   tag = HexletCode.form_for @user do |f|
-  #     f.input :name
-  #     f.input :job, as: :text
-  #   end
-  #   assert { tag == '<form action=\"#\" method=\"post\"><label for=\"name\">Name</label>
-  # <input name="name" type="text" value="rob">''<textarea cols="20" rows="40" name="job">hexlet</textarea></form>' }
-  # end
 end
