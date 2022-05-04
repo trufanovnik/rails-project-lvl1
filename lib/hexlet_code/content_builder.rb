@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require_relative "html"
-
+# Comment
 module HexletCode
+  # comment
   class ContentBuilder
     include HexletCode::Html
 

@@ -5,6 +5,7 @@ require_relative "hexlet_code/tag"
 require_relative "hexlet_code/content_builder"
 require_relative "hexlet_code/html"
 
+# Common
 module HexletCode
   class Error < StandardError; end
 
