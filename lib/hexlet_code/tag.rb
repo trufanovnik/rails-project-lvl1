@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module HexletCode
-  # comment
   class Tag
     EMPTY_TAGS = %w[area base br col embed hr img input link menuitem meta param source track].freeze
 

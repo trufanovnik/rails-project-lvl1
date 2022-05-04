@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module HexletCode
-  # comment
   module Html
     METHODS = { text: :textarea, default: :input_text }.freeze
 
