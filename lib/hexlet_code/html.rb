@@ -23,7 +23,7 @@ module HexletCode
     end
 
     def input_text(name, value, **attributes)
-      HexletCode::Tag.build("input", name: name, type: :text, value: value, **attributes)
+      HexletCode::Tag.build("input", name: name, type: :text, value: value.to_s, **attributes)
     end
 
     def textarea(name, value, **attributes)
