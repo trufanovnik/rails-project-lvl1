@@ -2,7 +2,7 @@
 
 module HexletCode
   class Tag
-    EMPTY_TAGS = %w[area base br col embed hr img input link menuitem meta param source track a].freeze
+    EMPTY_TAGS = %w[area base br col embed hr img input link menuitem meta param source track].freeze
 
     def self.build(tag_name, **attributes, &block)
       tag = []
@@ -24,15 +24,10 @@ module HexletCode
       block.call
     end
 
-<<<<<<< HEAD
-    def self.tag_close(name, &block)
-      block ? "</#{name}>" : ">"
-=======
     def self.closed_tag?(tag_name)
       return false if EMPTY_TAGS.include? tag_name
 
       true
->>>>>>> c12a4c85e4b1d695b8c7ce0dd1516ae19f9d1ec2
     end
   end
 end

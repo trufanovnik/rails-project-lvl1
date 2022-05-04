@@ -36,7 +36,7 @@ class TestTag < Minitest::Test
   def test_build_returns_opening_tag
     tag_name = "a"
     target = HexletCode::Tag.build(tag_name)
-    assert { target == "<#{tag_name}>" }
+    assert { target == "<#{tag_name}></#{tag_name}>" }
   end
 
   def test_build_executes_block
