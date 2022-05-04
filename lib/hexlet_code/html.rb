@@ -5,15 +5,15 @@ module HexletCode
     METHODS = { text: :textarea, default: :input_text }.freeze
 
     def html_label(label_text)
-      HexletCode::Tag.build("label", for: label_text.to_s) { label_text.to_s.capitalize }
+      HexletCode::Tag.build('label', for: label_text.to_s) { label_text.to_s.capitalize }
     end
 
     def html_div(**attributes, &block)
-      HexletCode::Tag.build("div", **attributes) { block.call }
+      HexletCode::Tag.build('div', **attributes) { block.call }
     end
 
-    def html_submit(caption = "Save", **attributes)
-      HexletCode::Tag.build("input", type: :submit, name: :commit, value: caption, **attributes)
+    def html_submit(caption = 'Save', **attributes)
+      HexletCode::Tag.build('input', type: :submit, name: :commit, value: caption, **attributes)
     end
 
     def html_input(name, value, **attributes)
@@ -23,12 +23,12 @@ module HexletCode
     end
 
     def input_text(name, value, **attributes)
-      HexletCode::Tag.build("input", name: name, type: :text, value: value.to_s, **attributes)
+      HexletCode::Tag.build('input', name: name, type: :text, value: value.to_s, **attributes)
     end
 
     def textarea(name, value, **attributes)
       attributes = { cols: 20, rows: 40 }.merge attributes
-      HexletCode::Tag.build("textarea", **attributes, name: name) { value }
+      HexletCode::Tag.build('textarea', **attributes, name: name) { value }
     end
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "html"
+require_relative 'html'
 module HexletCode
   class ContentBuilder
     include HexletCode::Html
@@ -19,7 +19,7 @@ module HexletCode
       html_label(label_text, **attributes, &block)
     end
 
-    def submit(caption = "Save", **attributes)
+    def submit(caption = 'Save', **attributes)
       @bufer << html_submit(caption, **attributes)
     end
 
