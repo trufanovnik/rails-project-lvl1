@@ -21,7 +21,7 @@ module HexletCode
     end
 
     def submit(caption = "Save", **attributes)
-      @bufer << html_submit
+      @bufer << html_submit(caption, **attributes)
     end
 
     def content
