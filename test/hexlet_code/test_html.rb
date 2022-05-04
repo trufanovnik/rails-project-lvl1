@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class TestHexletCode < Minitest::Test
+class TestHtmlCode < Minitest::Test
   class HtmlClass
     include HexletCode::Html
   end
