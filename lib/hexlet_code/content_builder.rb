@@ -10,7 +10,8 @@ module HexletCode
       @bufer = []
     end
 
-    def input(name, value = @model.send(name), **attributes)
+    def input(name, **attributes)
+      value = @model.send(name)
       @bufer << label(name)
       @bufer << html_input(name, value, **attributes)
     end

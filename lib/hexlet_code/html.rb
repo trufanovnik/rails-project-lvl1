@@ -17,9 +17,9 @@ module HexletCode
     end
 
     def html_input(name, value, **attributes)
-      as = (attributes.delete :as) || :default
-      i_method = METHODS[as]
-      send i_method, name, value, **attributes
+      as = attributes.fetch(:as, nil) || :default
+      content_type = METHODS[as]
+      send content_type, name, value, **attributes
     end
 
     def input_text(name, value, **attributes)
@@ -28,7 +28,8 @@ module HexletCode
 
     def textarea(name, value, **attributes)
       attributes = { cols: 20, rows: 40 }.merge attributes
-      HexletCode::Tag.build('textarea', **attributes, name: name) { value }
+      select_attributes = attributes.except(:as)
+      HexletCode::Tag.build('textarea', **select_attributes, name: name) { value }
     end
   end
 end
