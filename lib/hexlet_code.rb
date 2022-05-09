@@ -19,8 +19,8 @@ module HexletCode
       args = x[:arguments]
       method = x[:type]
       builder.method name, **args
-      builder.content
+      @aa = builder.content
     end
-    HexletCode::Tag.build('form', action: url, method: :post) { block_content }
+    HexletCode::Tag.build('form', action: url, method: :post) { @aa }
   end
 end
