@@ -6,11 +6,11 @@ module HexletCode
       @storage = []
     end
 
-    def input(name, **args)
+    def input(name, args = {})
       @storage << { type: :input, name: name, arguments: args }
     end
 
-    def submit(**args)
+    def submit(args = {})
       @storage << { type: :submit, arguments: args }
     end
 
@@ -19,3 +19,14 @@ module HexletCode
     end
   end
 end
+# ff = FieldsBuilder.new
+# ff.input :name
+# ff.input :job, as: :text
+# ff.submit
+# ff.field_storage
+# kk = ff.field_storage
+# @args = []
+# kk.each do |x|
+#   a = x[:arguments].each { |key, value| @args << "#{key}: :#{value}" }
+# end
+# bb = @args.join

@@ -14,7 +14,7 @@ module HexletCode
     yield field_builder if block_given?
     field_content = field_builder.field_storage
     builder = HexletCode::ContentBuilder.new(model)
-    block_content = field_content.each do |x|
+    field_content.each do |x|
       name = x[:name]
       args = x[:arguments]
       method = x[:type]
